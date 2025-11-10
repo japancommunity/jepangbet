@@ -112,7 +112,7 @@
   var css = ""
     + ".wd-pill{position:fixed;top:14px;left:14px;z-index:999999;display:inline-flex;align-items:center;gap:10px;"
     + "padding:8px 14px;border-radius:999px;background:rgba(23,23,23,.88);border:2px solid #970005;color:#888888;"
-    + "font:14px/1.25 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;"
+    + "font:12px/1.25 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;"
     + "box-shadow:0 10px 20px rgba(0,0,0,.25),inset 0 0 0 1px rgba(255,255,255,.04);"
     + "transform:translateY(-12px);opacity:0;pointer-events:none}"
     + ".wd-pill.is-show{opacity:1;transform:translateY(0);transition:transform .35s ease,opacity .35s ease}"
