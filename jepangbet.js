@@ -111,7 +111,7 @@
   // CSS pill merah (posisi ATAS seperti gambar pertama, gaya mirip gambar kedua)
   var css = ""
     + ".wd-pill{position:fixed;top:14px;left:14px;z-index:999999;display:inline-flex;align-items:center;gap:10px;"
-    + "padding:8px 14px;border-radius:999px;background:rgba(23,23,23,.88);border:2px solid #970005;color:#970005;"
+    + "padding:8px 14px;border-radius:999px;background:rgba(23,23,23,.88);border:2px solid #970005;color:#888888;"
     + "font:14px/1.25 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;"
     + "box-shadow:0 10px 20px rgba(0,0,0,.25),inset 0 0 0 1px rgba(255,255,255,.04);"
     + "transform:translateY(-12px);opacity:0;pointer-events:none}"
@@ -121,7 +121,29 @@
   var style = document.createElement('style');
   style.textContent = css;
   document.head.appendChild(style);
-
+  // Override khusus mobile: posisi tengah
+  var mobileCss = `
+  @media (max-width: 640px) {
+    .wd-pill{
+      left: 50% !important;          /* pindah ke tengah */
+      right: auto !important;
+      transform: translate(-50%, -12px); /* posisi awal (tersembunyi) */
+      max-width: 94vw;               /* biar tidak melewati layar */
+    }
+    .wd-pill.is-show{
+      transform: translate(-50%, 0); /* saat muncul */
+    }
+    .wd-pill .wd-text{
+      max-width: calc(94vw - 48px);  /* sisa ruang setelah padding+logo */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  `;
+  var styleMobile = document.createElement('style');
+  styleMobile.textContent = mobileCss;
+  document.head.appendChild(styleMobile);
   // Elemen DOM
   var pill = document.createElement('div');
   pill.className = 'wd-pill';
